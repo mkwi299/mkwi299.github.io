@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reading Activity · 1.º Bachillerato — Trading Likes for Peace of Mind</title>
+  <style>
+    :root {
+      --bg: #f1f5f9;
+      --surface: #ffffff;
+      --surface-alt: #f8fafc;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+      --border-light: #e2e8f0;
+      --primary: #4338ca;
+      --primary-hover: #3730a3;
+      --primary-soft: #eef2ff;
+      --secondary: #0f766e;
+      --secondary-soft: #f0fdfa;
+      --success: #047857;
+      --success-bg: #ecfdf5;
+      --success-border: #6ee7b7;
+      --warning: #b45309;
+      --warning-bg: #fffbeb;
+      --warning-border: #fcd34d;
+      --danger: #b91c1c;
+      --danger-bg: #fef2f2;
+      --danger-border: #fca5a5;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .app-wrapper {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .app-wrapper {
+        padding: 1.75rem 2rem 3rem;
+      }
+    }
+
+    /* Header */
+    .top-banner {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 55%, #0f766e 100%);
+      color: #ffffff;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    @media (min-width: 768px) {
+      .top-banner {
+        padding: 2rem 2.25rem;
+      }
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+    }
+
+    .top-banner h1 {
+      margin: 0 0 0.4rem;
+      font-size: 1.45rem;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    @media (min-width: 768px) {
+      .top-banner h1 {
+        font-size: 1.9rem;
+      }
+    }
+
+    .top-banner p {
+      margin: 0;
+      color: #e0e7ff;
+      font-size: 0.98rem;
+    }
+
+    /* Cards & Layout */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.25rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        padding: 1.85rem;
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Start Screen */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .intro-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .info-box {
+      background: var(--surface-alt);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 1.15rem;
+    }
+
+    .info-box h3 {
+      margin: 0 0 0.6rem;
+      font-size: 1.05rem;
+      color: var(--primary);
+    }
+
+    .info-box ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .info-box li {
+      margin-bottom: 0.4rem;
+    }
+
+    .name-form-box {
+      background: var(--primary-soft);
+      border: 2px solid #c7d2fe;
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+    }
+
+    .name-form-box label {
+      display: block;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      color: #1e1b4b;
+    }
+
+    .input-field {
+      width: 100%;
+      min-height: 48px;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      font-family: inherit;
+      color: var(--text);
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.18);
+    }
+
+    .error-msg {
+      color: var(--danger);
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 50px;
+      padding: 0.8rem 1.4rem;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      border-radius: var(--radius-sm);
+      border: 2px solid transparent;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.18s, transform 0.1s, border-color 0.18s;
+      width: 100%;
+    }
+
+    @media (min-width: 600px) {
+      .btn-auto {
+        width: auto;
+      }
+    }
+
+    .btn:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: var(--secondary);
+      color: #ffffff;
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background: #115e59;
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-outline:hover:not(:disabled) {
+      background: var(--primary-soft);
+    }
+
+    /* Progress Bar Area (Normal Flow - Never Fixed/Overlapping) */
+    .status-panel {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .status-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.92rem;
+    }
+
+    .student-pill {
+      font-weight: 700;
+      color: #1e1b4b;
+      background: var(--primary-soft);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .score-pill {
+      font-weight: 700;
+      color: var(--secondary);
+      background: var(--secondary-soft);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 12px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+
+    /* Workspace Layout: Single column on mobile/tablet, two-column in normal flow on wide desktop */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    @media (min-width: 980px) {
+      .workspace-grid.in-questions {
+        grid-template-columns: 1.05fr 0.95fr;
+      }
+    }
+
+    /* Mobile Reading Toggle Bar (visible below 980px during questions) */
+    .mobile-reading-controls {
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 980px) {
+      .workspace-grid.in-questions .mobile-reading-controls {
+        display: none;
+      }
+    }
+
+    /* Reading Passage Styling */
+    .reading-header {
+      border-bottom: 2px solid var(--border-light);
+      padding-bottom: 0.85rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .reading-kicker {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--secondary);
+      margin-bottom: 0.3rem;
+    }
+
+    .reading-title {
+      margin: 0;
+      font-size: 1.3rem;
+      line-height: 1.3;
+      color: var(--text);
+    }
+
+    .paragraph-block {
+      display: flex;
+      gap: 0.85rem;
+      margin-bottom: 1.05rem;
+      align-items: flex-start;
+    }
+
+    .para-num {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2rem;
+      height: 1.85rem;
+      padding: 0 0.45rem;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      margin-top: 0.15rem;
+    }
+
+    .paragraph-block p {
+      margin: 0;
+      font-size: 1.02rem;
+      color: #1e293b;
+      text-align: left;
+    }
+
+    .reading-footer-actions {
+      margin-top: 1.35rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 980px) {
+      .workspace-grid.in-questions .hide-on-desktop-questions {
+        display: none;
+      }
+    }
+
+    /* Question Card */
+    .section-tag {
+      display: inline-block;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 0.65rem;
+    }
+
+    .question-instruction {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0 0 0.85rem;
+      font-style: italic;
+    }
+
+    .question-prompt {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 1.15rem;
+      line-height: 1.45;
+    }
+
+    /* Multiple Choice Options */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      width: 100%;
+      min-height: 52px;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      background: var(--surface-alt);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--text);
+      cursor: pointer;
+      transition: border-color 0.15s, background-color 0.15s;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .option-btn.selected {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      font-weight: 600;
+    }
+
+    .option-btn.correct-choice {
+      border-color: var(--success);
+      background: var(--success-bg);
+      color: #064e3b;
+      font-weight: 600;
+    }
+
+    .option-btn.wrong-choice {
+      border-color: var(--danger);
+      background: var(--danger-bg);
+      color: #7f1d1d;
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+    }
+
+    .option-letter {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.85rem;
+      height: 1.85rem;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--primary);
+    }
+
+    .option-btn.selected .option-letter {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* True / False Selector */
+    .tf-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .tf-btn {
+      min-height: 50px;
+      padding: 0.75rem;
+      font-size: 1.05rem;
+      font-weight: 800;
+      font-family: inherit;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--border);
+      background: var(--surface-alt);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .tf-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .tf-btn.selected {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .tf-btn.locked-correct {
+      border-color: var(--success);
+      background: var(--success);
+      color: #ffffff;
+    }
+
+    .tf-btn:disabled {
+      cursor: default;
+    }
+
+    .textarea-field {
+      width: 100%;
+      min-height: 96px;
+      padding: 0.85rem 1rem;
+      font-size: 1rem;
+      font-family: inherit;
+      line-height: 1.5;
+      color: var(--text);
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      resize: vertical;
+    }
+
+    .textarea-field:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.18);
+    }
+
+    .textarea-field:disabled {
+      background: var(--surface-alt);
+      color: var(--text-muted);
+    }
+
+    .field-label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    /* Feedback & Hints */
+    .feedback-box {
+      margin-top: 1.15rem;
+      padding: 1.1rem 1.2rem;
+      border-radius: var(--radius-sm);
+      border-left: 5px solid;
+      font-size: 0.97rem;
+    }
+
+    .feedback-box.success {
+      background: var(--success-bg);
+      border-color: var(--success);
+      color: #064e3b;
+    }
+
+    .feedback-box.hint {
+      background: var(--warning-bg);
+      border-color: var(--warning);
+      color: #78350f;
+    }
+
+    .feedback-box.error {
+      background: var(--danger-bg);
+      border-color: var(--danger);
+      color: #7f1d1d;
+    }
+
+    .feedback-title {
+      font-weight: 800;
+      font-size: 1.02rem;
+      margin: 0 0 0.4rem;
+    }
+
+    .evidence-quote {
+      margin-top: 0.65rem;
+      padding: 0.65rem 0.85rem;
+      background: rgba(255, 255, 255, 0.78);
+      border-radius: 8px;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      font-style: italic;
+      color: #0f172a;
+    }
+
+    .action-row {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 600px) {
+      .action-row {
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+    }
+
+    /* Final Screen */
+    .final-hero {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: linear-gradient(135deg, #eef2ff 0%, #f0fdfa 100%);
+      border: 2px solid #c7d2fe;
+      border-radius: var(--radius);
+      margin-bottom: 1.5rem;
+    }
+
+    .final-score-circle {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 138px;
+      height: 138px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 6px solid var(--primary);
+      box-shadow: 0 8px 24px rgba(67, 56, 202, 0.16);
+      margin: 0.75rem 0;
+    }
+
+    .final-score-number {
+      font-size: 2.35rem;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .final-score-max {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .classroom-notice {
+      background: #fffbeb;
+      border: 2px dashed #f59e0b;
+      border-radius: var(--radius-sm);
+      padding: 1.15rem 1.25rem;
+      margin: 1.25rem 0;
+      color: #78350f;
+    }
+
+    .classroom-notice strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+      color: #92400e;
+    }
+
+    .breakdown-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.94rem;
+    }
+
+    .breakdown-table th,
+    .breakdown-table td {
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border-light);
+      text-align: left;
+    }
+
+    .breakdown-table th {
+      background: var(--surface-alt);
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .breakdown-table td:last-child,
+    .breakdown-table th:last-child {
+      text-align: right;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- Banner -->
+    <header class="top-banner">
+      <div class="badge-row">
+        <span class="badge">1.º de Bachillerato</span>
+        <span class="badge">Reading Comprehension</span>
+        <span class="badge">437 Words · Level B1/B1+</span>
+      </div>
+      <h1>Trading Likes for Peace of Mind: Why Some Teens Are Choosing "Dumbphones"</h1>
+      <p>Actividad interactiva de comprensión lectora con retroalimentación guiada y puntuación automática.</p>
+    </header>
+
+    <!-- SCREEN 1: START / STUDENT NAME -->
+    <section id="start-screen" class="card">
+      <h2 style="margin-top: 0; color: #1e1b4b;">Instrucciones de uso</h2>
+      <div class="intro-grid">
+        <div class="info-box">
+          <h3>¿Cómo funciona la actividad?</h3>
+          <ul>
+            <li>Lee primero el texto completo con atención (está dividido en 5 párrafos numerados: <strong>I–V</strong>).</li>
+            <li>Responderás <strong>15 preguntas</strong> repartidas en tres secciones: <em>Multiple Choice</em>, <em>Synonyms</em> y <em>True / False with Evidence</em>.</li>
+            <li>Dispones de <strong>2 intentos</strong> por pregunta. Si fallas el primero, recibirás una <strong>pista</strong> sobre el párrafo correspondiente.</li>
+            <li>No podrás avanzar a la siguiente pregunta hasta completar la actual.</li>
+          </ul>
+        </div>
+        <div class="info-box">
+          <h3>Criterios de puntuación (sobre 10)</h3>
+          <ul>
+            <li><strong>Sección A (5 preguntas test):</strong> 0,60 pts al 1.º intento · 0,30 pts al 2.º intento (máx. <strong>3,0 pts</strong>).</li>
+            <li><strong>Sección B (5 sinónimos):</strong> 0,50 pts al 1.º intento · 0,25 pts al 2.º intento (máx. <strong>2,5 pts</strong>).</li>
+            <li><strong>Sección C (5 True/False + evidencia):</strong> 0,40 pts por elegir True/False + 0,50 pts por la evidencia textual (mitad de puntos si se acierta en el 2.º intento; máx. <strong>4,5 pts</strong>).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="name-form-box">
+        <label for="student-name-input">Introduce tu nombre y apellidos para comenzar:</label>
+        <input
+          type="text"
+          id="student-name-input"
+          class="input-field"
+          placeholder="Ejemplo: Lucía Fernández Gómez"
+          autocomplete="name"
+        />
+        <div id="name-error" class="error-msg hidden">
+          Por favor, escribe tu nombre y apellidos (mínimo 2 caracteres) antes de empezar.
+        </div>
+        <div style="margin-top: 1rem;">
+          <button type="button" id="start-btn" class="btn btn-primary btn-auto">
+            Comenzar lectura →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: READING + INTERACTIVE QUESTIONS -->
+    <main id="activity-screen" class="hidden">
+      <!-- Status & Progress Bar (In normal flow, never overlapping) -->
+      <div class="status-panel" id="status-panel">
+        <div class="status-top">
+          <span class="student-pill" id="display-student-name">Alumno/a</span>
+          <span class="score-pill" id="live-score-pill">Puntuación: 0 / 10</span>
+        </div>
+        <div class="progress-meta">
+          <span id="progress-label">Fase de lectura inicial</span>
+          <span id="progress-percent">0%</span>
+        </div>
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar-role">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Mobile/Tablet Collapsible Toggle (Only shown when in Questions mode on <980px) -->
+      <div id="mobile-toggle-bar" class="mobile-reading-controls hidden">
+        <button type="button" id="toggle-reading-btn" class="btn btn-outline">
+          📖 Mostrar texto de lectura
+        </button>
+      </div>
+
+      <!-- Main Workspace Grid -->
+      <div id="workspace-grid" class="workspace-grid">
+        <!-- READING PASSAGE CARD -->
+        <article id="reading-card" class="card">
+          <div class="reading-header">
+            <div class="reading-kicker">Reading Text · Read carefully before answering</div>
+            <h2 class="reading-title">Trading Likes for Peace of Mind: Why Some Teens Are Choosing "Dumbphones"</h2>
+          </div>
+
+          <div class="paragraph-block">
+            <span class="para-num">I</span>
+            <p>
+              For most teenagers today, a smartphone is the first thing they reach for in the morning and the last thing they look at before falling asleep. Yet a growing minority of secondary school students are deliberately swimming against the tide. Instead of upgrading to the latest flagship device, they are switching to basic "dumbphones" — simple handsets capable only of making calls, sending text messages, and perhaps setting an alarm. While critics once dismissed this trend as a passing novelty, recent sales figures suggest that young people are seriously rethinking their relationship with constant connectivity.
+            </p>
+          </div>
+
+          <div class="paragraph-block">
+            <span class="para-num">II</span>
+            <p>
+              The main motivation behind this shift is digital exhaustion. Modern social media platforms are engineered to capture human attention for as long as possible, bombarding users with endless notifications and algorithm-driven videos. Seventeen-year-old Maya Patel, who swapped her smartphone for a basic flip phone six months ago, admits that her screen time had reached nearly seven hours a day. "I felt as though my concentration was shrinking," she explains. "Even when I was hanging out with friends in person, half of us were scrolling silently instead of actually talking."
+            </p>
+          </div>
+
+          <div class="paragraph-block">
+            <span class="para-num">III</span>
+            <p>
+              Beyond improving their focus, many young users report unexpected emotional benefits. Without instant access to curated photos and constant online comparisons, feelings of anxiety and the fear of missing out tend to fade. Sleep quality also improves dramatically once glowing screens are banned from the bedroom. Interestingly, the movement has gained momentum not through lectures from worried parents or teachers, but through peer influence. In several high schools, small groups of friends have formed "offline clubs," agreeing to downgrade their phones together so that nobody feels isolated from the group.
+            </p>
+          </div>
+
+          <div class="paragraph-block">
+            <span class="para-num">IV</span>
+            <p>
+              Nevertheless, abandoning a smartphone in a hyper-connected society comes with undeniable practical drawbacks. Essential everyday tasks — such as checking public transport timetables, scanning QR codes at cafés, or accessing digital school platforms — suddenly become far more complicated. Some students also worry about losing touch with classmates who rely exclusively on messaging apps to organise weekend plans. As a result, a number of teenagers have adopted a hybrid approach: they keep their old smartphones switched off in a drawer during the week and only turn them on for specific purposes.
+            </p>
+          </div>
+
+          <div class="paragraph-block" style="margin-bottom: 0;">
+            <span class="para-num">V</span>
+            <p>
+              It is unlikely that basic phones will ever replace smartphones entirely, nor do most young adopters expect society to turn back the clock. Instead, their experiment highlights a broader desire among Generation Z to regain control over their time and mental well-being. By proving that constant digital access is a choice rather than a necessity, these teenagers are challenging the assumption that newer technology always leads to a better quality of life.
+            </p>
+          </div>
+
+          <!-- Action button at bottom of reading card -->
+          <div class="reading-footer-actions" id="reading-footer-actions">
+            <button type="button" id="go-to-questions-btn" class="btn btn-primary">
+              Ir a las preguntas ↓
+            </button>
+            <button type="button" id="hide-and-return-btn" class="btn btn-secondary hidden">
+              🔼 Ocultar lectura y volver a la pregunta ↓
+            </button>
+          </div>
+        </article>
+
+        <!-- QUESTION CARD -->
+        <section id="question-card" class="card hidden" aria-live="polite">
+          <div class="section-tag" id="q-section-tag">Section A · Multiple Choice</div>
+          <p class="question-instruction" id="q-instruction"></p>
+          <h3 class="question-prompt" id="q-prompt"></h3>
+
+          <!-- Dynamic Input Container -->
+          <div id="q-input-area"></div>
+
+          <!-- Feedback / Hint Box -->
+          <div id="q-feedback" class="feedback-box hidden"></div>
+
+          <!-- Action Buttons -->
+          <div class="action-row">
+            <button type="button" id="submit-answer-btn" class="btn btn-primary btn-auto">
+              Comprobar respuesta
+            </button>
+            <button type="button" id="next-question-btn" class="btn btn-secondary btn-auto hidden">
+              Siguiente pregunta →
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- SCREEN 3: FINAL SUMMARY -->
+    <section id="final-screen" class="card hidden">
+      <div class="final-hero">
+        <div class="reading-kicker">Actividad completada · Resultado final</div>
+        <h2 id="final-student-name" style="margin: 0.25rem 0; font-size: 1.55rem; color: #1e1b4b;"></h2>
+        <p style="margin: 0.25rem 0 0.5rem; color: var(--text-muted); font-weight: 600;">
+          Lectura: <em>"Trading Likes for Peace of Mind: Why Some Teens Are Choosing 'Dumbphones'"</em>
+        </p>
+
+        <div class="final-score-circle" aria-label="Nota final">
+          <span class="final-score-number" id="final-score-value">0</span>
+          <span class="final-score-max">sobre 10</span>
+        </div>
+
+        <p id="final-closing-message" style="max-width: 620px; margin: 0.5rem auto 0; font-size: 1.05rem; font-weight: 600; color: #0f172a;"></p>
+      </div>
+
+      <div class="classroom-notice">
+        <strong>📸 Entrega en Google Classroom:</strong>
+        Haz una captura de pantalla de esta página final (asegúrate de que se vean tu <strong>nombre</strong>, el <strong>título de la lectura</strong> y tu <strong>nota sobre 10</strong>) y adjúntala en la tarea correspondiente de Google Classroom.
+      </div>
+
+      <div class="info-box">
+        <h3>Desglose y cálculo de tu calificación</h3>
+        <p style="margin: 0 0 0.65rem; font-size: 0.93rem; color: var(--text-muted);">
+          La nota final (máximo 10 puntos, redondeada a un decimal) se obtiene sumando los puntos conseguidos en cada apartado. Las respuestas acertadas al primer intento reciben el 100 % de su valor y las acertadas al segundo intento (tras recibir pista) reciben el 50 %.
+        </p>
+        <table class="breakdown-table">
+          <thead>
+            <tr>
+              <th>Sección</th>
+              <th>Preguntas</th>
+              <th>Puntos obtenidos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A. Multiple Choice</td>
+              <td>5 × 0,60 pts</td>
+              <td id="breakdown-a">0 / 3,0</td>
+            </tr>
+            <tr>
+              <td>B. Find Synonyms in the Text</td>
+              <td>5 × 0,50 pts</td>
+              <td id="breakdown-b">0 / 2,5</td>
+            </tr>
+            <tr>
+              <td>C. True / False with Justification</td>
+              <td>5 × 0,90 pts (0,40 T/F + 0,50 evidencia)</td>
+              <td id="breakdown-c">0 / 4,5</td>
+            </tr>
+            <tr style="background: var(--primary-soft);">
+              <td><strong>TOTAL FINAL</strong></td>
+              <td><strong>15 ítems</strong></td>
+              <td id="breakdown-total" style="color: var(--primary);"><strong>0 / 10</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      // =========================================================
+      // 1. QUESTION BANK (15 ITEMS: 5 MC + 5 SYNONYMS + 5 T/F)
+      // =========================================================
+      const questions = [
+        // --- SECTION A: MULTIPLE CHOICE (0.60 pts each = 3.00 pts) ---
+        {
+          id: "A1",
+          section: "A",
+          sectionLabel: "Section A · Multiple Choice (1 of 5)",
+          instruction: "Choose the best option (A, B, C, or D) according to the text.",
+          prompt: "1. What does the writer say about critics' initial reaction to teenagers using 'dumbphones'?",
+          type: "mc",
+          maxPoints: 0.6,
+          options: [
+            { key: "A", text: "They predicted that basic phones would soon outsell modern smartphones." },
+            { key: "B", text: "They believed the trend would only be temporary." },
+            { key: "C", text: "They encouraged secondary schools to ban flagship devices." },
+            { key: "D", text: "They argued that basic handsets were too expensive for young people." }
+          ],
+          correctKey: "B",
+          hint: "Read the final sentence of Paragraph I carefully to see how critics originally viewed this trend.",
+          wrongExplanation: "The text does not mention critics predicting higher sales, banning phones, or discussing prices; instead, it notes that critics originally thought the trend would not last.",
+          evidence: '"While critics once dismissed this trend as a passing novelty, recent sales figures suggest that young people are seriously rethinking their relationship with constant connectivity." (Paragraph I)'
+        },
+        {
+          id: "A2",
+          section: "A",
+          sectionLabel: "Section A · Multiple Choice (2 of 5)",
+          instruction: "Choose the best option (A, B, C, or D) according to the text.",
+          prompt: "2. Why does the writer include Maya Patel's experience in Paragraph II?",
+          type: "mc",
+          maxPoints: 0.6,
+          options: [
+            { key: "A", text: "To prove that flip phones are more durable than modern smartphones." },
+            { key: "B", text: "To show that teenagers prefer texting to meeting their friends in person." },
+            { key: "C", text: "To suggest that seven hours of daily screen time is normal and harmless." },
+            { key: "D", text: "To illustrate how excessive screen use affects focus and face-to-face socializing." }
+          ],
+          correctKey: "D",
+          hint: "Look at Maya's direct quote in Paragraph II and notice what happened to her concentration and her conversations with friends.",
+          wrongExplanation: "Maya's quote specifically highlights two negative effects of heavy smartphone use: reduced concentration and silent scrolling instead of talking when meeting friends.",
+          evidence: '"I felt as though my concentration was shrinking," she explains. "Even when I was hanging out with friends in person, half of us were scrolling silently instead of actually talking." (Paragraph II)'
+        },
+        {
+          id: "A3",
+          section: "A",
+          sectionLabel: "Section A · Multiple Choice (3 of 5)",
+          instruction: "Choose the best option (A, B, C, or D) according to the text.",
+          prompt: "3. According to Paragraph III, why has the 'offline' movement gained popularity among teenagers?",
+          type: "mc",
+          maxPoints: 0.6,
+          options: [
+            { key: "A", text: "Friends have decided to make the change together to support one another." },
+            { key: "B", text: "Parents and teachers have forced students to hand in their smartphones." },
+            { key: "C", text: "High schools have banned all mobile devices during break times." },
+            { key: "D", text: "Social media platforms have reduced the number of notifications they send." }
+          ],
+          correctKey: "A",
+          hint: "Check the second half of Paragraph III, where the writer contrasts adults' lectures with what actually motivated students.",
+          wrongExplanation: "Paragraph III explicitly states that the trend grew through peer influence and 'offline clubs' formed by friends, rather than lectures from parents or teachers.",
+          evidence: '"Interestingly, the movement has gained momentum not through lectures from worried parents or teachers, but through peer influence. In several high schools, small groups of friends have formed \'offline clubs,\' agreeing to downgrade their phones together so that nobody feels isolated from the group." (Paragraph III)'
+        },
+        {
+          id: "A4",
+          section: "A",
+          sectionLabel: "Section A · Multiple Choice (4 of 5)",
+          instruction: "Choose the best option (A, B, C, or D) according to the text.",
+          prompt: "4. How do some teenagers deal with the practical problems of not carrying a smartphone?",
+          type: "mc",
+          maxPoints: 0.6,
+          options: [
+            { key: "A", text: "They ask their teachers to print out every digital school document." },
+            { key: "B", text: "They stop making weekend plans with classmates who use messaging apps." },
+            { key: "C", text: "They leave their smartphones switched off at home and only use them when needed." },
+            { key: "D", text: "They carry two basic phones at the same time to stay organized." }
+          ],
+          correctKey: "C",
+          hint: "Focus on the 'hybrid approach' described in the final sentence of Paragraph IV.",
+          wrongExplanation: "Rather than giving up smartphones forever or printing school materials, several teens keep their old smartphones switched off in a drawer during the week and turn them on only for specific tasks.",
+          evidence: '"As a result, a number of teenagers have adopted a hybrid approach: they keep their old smartphones switched off in a drawer during the week and only turn them on for specific purposes." (Paragraph IV)'
+        },
+        {
+          id: "A5",
+          section: "A",
+          sectionLabel: "Section A · Multiple Choice (5 of 5)",
+          instruction: "Choose the best option (A, B, C, or D) according to the text.",
+          prompt: "5. What is the writer's main conclusion in the final paragraph?",
+          type: "mc",
+          maxPoints: 0.6,
+          options: [
+            { key: "A", text: "Modern smartphones will eventually disappear from society completely." },
+            { key: "B", text: "Young people want to question the idea that the newest technology always improves life." },
+            { key: "C", text: "Generation Z is unable to function without constant digital connectivity." },
+            { key: "D", text: "Basic phones will soon be upgraded to include social media apps." }
+          ],
+          correctKey: "B",
+          hint: "Read the final sentence of Paragraph V carefully to identify the belief these teenagers are challenging.",
+          wrongExplanation: "The writer states that basic phones are unlikely to replace smartphones entirely; instead, teens are proving constant access is a choice and questioning the belief that newer tech always means a better life.",
+          evidence: '"By proving that constant digital access is a choice rather than a necessity, these teenagers are challenging the assumption that newer technology always leads to a better quality of life." (Paragraph V)'
+        },
+
+        // --- SECTION B: FIND SYNONYMS IN THE TEXT (0.50 pts each = 2.50 pts) ---
+        {
+          id: "B1",
+          section: "B",
+          sectionLabel: "Section B · Find Synonyms in the Text (1 of 5)",
+          instruction: "Find ONE word or expression in the indicated paragraph that matches the definition.",
+          prompt: "6. Find a word in Paragraph I that means: 'intentionally; on purpose'.",
+          type: "synonym",
+          maxPoints: 0.5,
+          accepted: ["deliberately"],
+          canonical: "deliberately",
+          hint: "Look in the second sentence of Paragraph I for an adverb ending in '-ly' describing how students are swimming against the tide.",
+          wrongExplanation: "The exact adverb in Paragraph I meaning 'intentionally' or 'on purpose' is 'deliberately'.",
+          evidence: '"Yet a growing minority of secondary school students are deliberately swimming against the tide." (Paragraph I)'
+        },
+        {
+          id: "B2",
+          section: "B",
+          sectionLabel: "Section B · Find Synonyms in the Text (2 of 5)",
+          instruction: "Find ONE word or expression in the indicated paragraph that matches the definition.",
+          prompt: "7. Find a word in Paragraph II that means: 'becoming smaller or weaker'.",
+          type: "synonym",
+          maxPoints: 0.5,
+          accepted: ["shrinking", "shrink", "was shrinking"],
+          canonical: "shrinking",
+          hint: "Check Maya Patel's quote in Paragraph II to find a verb describing what happened to her concentration.",
+          wrongExplanation: "In Paragraph II, Maya uses the verb 'shrinking' to describe how her concentration was becoming smaller or weaker.",
+          evidence: '"I felt as though my concentration was shrinking," she explains. (Paragraph II)'
+        },
+        {
+          id: "B3",
+          section: "B",
+          sectionLabel: "Section B · Find Synonyms in the Text (3 of 5)",
+          instruction: "Find ONE word or expression in the indicated paragraph that matches the definition.",
+          prompt: "8. Find a word in Paragraph III that means: 'disappear gradually'.",
+          type: "synonym",
+          maxPoints: 0.5,
+          accepted: ["fade", "tend to fade", "to fade"],
+          canonical: "fade",
+          hint: "Look at the second sentence of Paragraph III to see what happens to feelings of anxiety and the fear of missing out.",
+          wrongExplanation: "The verb in Paragraph III meaning 'disappear gradually' is 'fade'.",
+          evidence: '"Without instant access to curated photos and constant online comparisons, feelings of anxiety and the fear of missing out tend to fade." (Paragraph III)'
+        },
+        {
+          id: "B4",
+          section: "B",
+          sectionLabel: "Section B · Find Synonyms in the Text (4 of 5)",
+          instruction: "Find ONE word or expression in the indicated paragraph that matches the definition.",
+          prompt: "9. Find a word in Paragraph IV that means: 'disadvantages or negative aspects'.",
+          type: "synonym",
+          maxPoints: 0.5,
+          accepted: ["drawbacks", "drawback", "practical drawbacks"],
+          canonical: "drawbacks",
+          hint: "Check the first sentence of Paragraph IV for a plural noun referring to the problems of abandoning a smartphone.",
+          wrongExplanation: "The noun in Paragraph IV meaning 'disadvantages' is 'drawbacks'.",
+          evidence: '"Nevertheless, abandoning a smartphone in a hyper-connected society comes with undeniable practical drawbacks." (Paragraph IV)'
+        },
+        {
+          id: "B5",
+          section: "B",
+          sectionLabel: "Section B · Find Synonyms in the Text (5 of 5)",
+          instruction: "Find ONE word or expression in the indicated paragraph that matches the definition.",
+          prompt: "10. Find a word in Paragraph V that means: 'a belief taken for granted without proof'.",
+          type: "synonym",
+          maxPoints: 0.5,
+          accepted: ["assumption", "the assumption"],
+          canonical: "assumption",
+          hint: "Look in the final sentence of Paragraph V for a noun describing the idea that newer technology always improves life.",
+          wrongExplanation: "The noun in Paragraph V meaning 'a belief accepted without proof' is 'assumption'.",
+          evidence: '"By proving that constant digital access is a choice rather than a necessity, these teenagers are challenging the assumption that newer technology always leads to a better quality of life." (Paragraph V)'
+        },
+
+        // --- SECTION C: TRUE / FALSE WITH JUSTIFICATION (0.40 + 0.50 = 0.90 pts each = 4.50 pts) ---
+        {
+          id: "C1",
+          section: "C",
+          sectionLabel: "Section C · True or False with Evidence (1 of 5)",
+          instruction: "Decide if the statement is TRUE or FALSE, and copy or paraphrase the exact evidence from the text to justify your answer.",
+          prompt: "11. Most secondary school students have already stopped using smartphones.",
+          type: "tf",
+          tfPoints: 0.4,
+          evPoints: 0.5,
+          correctTF: "False",
+          hint: "Compare the first two sentences of Paragraph I: what do 'most teenagers' do versus the 'growing minority'?",
+          wrongTFExplanation: "The statement is FALSE because the text says most teenagers still use smartphones from morning to night, and only a minority are switching to basic phones.",
+          evidence: '"For most teenagers today, a smartphone is the first thing they reach for in the morning and the last thing they look at before falling asleep. Yet a growing minority of secondary school students are deliberately swimming against the tide." (Paragraph I)',
+          exactPhrases: [
+            "most teenagers today a smartphone is the first thing they reach for",
+            "growing minority of secondary school students are deliberately swimming against the tide",
+            "minority of secondary school students",
+            "first thing they reach for in the morning"
+          ],
+          conceptGroups: [
+            ["most teenagers", "majority", "minority", "small group", "few"],
+            ["smartphone", "smartphones", "tide", "reach for", "switching", "dumbphones"]
+          ]
+        },
+        {
+          id: "C2",
+          section: "C",
+          sectionLabel: "Section C · True or False with Evidence (2 of 5)",
+          instruction: "Decide if the statement is TRUE or FALSE, and copy or paraphrase the exact evidence from the text to justify your answer.",
+          prompt: "12. Social media apps are intentionally designed to keep users engaged for extended periods.",
+          type: "tf",
+          tfPoints: 0.4,
+          evPoints: 0.5,
+          correctTF: "True",
+          hint: "Read the second sentence of Paragraph II to see how modern social media platforms are built.",
+          wrongTFExplanation: "The statement is TRUE: Paragraph II explicitly explains that social media platforms are engineered to capture human attention for as long as possible.",
+          evidence: '"Modern social media platforms are engineered to capture human attention for as long as possible, bombarding users with endless notifications and algorithm-driven videos." (Paragraph II)',
+          exactPhrases: [
+            "social media platforms are engineered to capture human attention for as long as possible",
+            "engineered to capture human attention",
+            "capture human attention for as long as possible",
+            "bombarding users with endless notifications"
+          ],
+          conceptGroups: [
+            ["social media", "platforms", "apps"],
+            ["engineered", "designed", "built", "capture", "attention", "notifications"],
+            ["long as possible", "endless", "attention", "time"]
+          ]
+        },
+        {
+          id: "C3",
+          section: "C",
+          sectionLabel: "Section C · True or False with Evidence (3 of 5)",
+          instruction: "Decide if the statement is TRUE or FALSE, and copy or paraphrase the exact evidence from the text to justify your answer.",
+          prompt: "13. Teenagers who keep glowing screens out of their bedrooms tend to sleep worse than before.",
+          type: "tf",
+          tfPoints: 0.4,
+          evPoints: 0.5,
+          correctTF: "False",
+          hint: "Look at the third sentence of Paragraph III to see what happens to sleep quality when screens are banned from the bedroom.",
+          wrongTFExplanation: "The statement is FALSE because Paragraph III says that sleep quality actually improves dramatically when glowing screens are banned from the bedroom.",
+          evidence: '"Sleep quality also improves dramatically once glowing screens are banned from the bedroom." (Paragraph III)',
+          exactPhrases: [
+            "sleep quality also improves dramatically once glowing screens are banned from the bedroom",
+            "sleep quality also improves dramatically",
+            "glowing screens are banned from the bedroom"
+          ],
+          conceptGroups: [
+            ["sleep", "sleeping", "rest"],
+            ["improves", "improve", "improved", "better", "dramatically"],
+            ["bedroom", "screens", "screen", "banned", "without"]
+          ]
+        },
+        {
+          id: "C4",
+          section: "C",
+          sectionLabel: "Section C · True or False with Evidence (4 of 5)",
+          instruction: "Decide if the statement is TRUE or FALSE, and copy or paraphrase the exact evidence from the text to justify your answer.",
+          prompt: "14. Not having a smartphone makes everyday tasks such as checking public transport or school platforms harder.",
+          type: "tf",
+          tfPoints: 0.4,
+          evPoints: 0.5,
+          correctTF: "True",
+          hint: "Check the second sentence of Paragraph IV for examples of daily activities affected by giving up a smartphone.",
+          wrongTFExplanation: "The statement is TRUE: Paragraph IV states that everyday tasks like checking transport timetables or accessing school platforms become far more complicated.",
+          evidence: '"Essential everyday tasks — such as checking public transport timetables, scanning QR codes at cafés, or accessing digital school platforms — suddenly become far more complicated." (Paragraph IV)',
+          exactPhrases: [
+            "essential everyday tasks such as checking public transport timetables",
+            "accessing digital school platforms suddenly become far more complicated",
+            "suddenly become far more complicated",
+            "public transport timetables"
+          ],
+          conceptGroups: [
+            ["everyday tasks", "transport", "timetables", "school platforms", "qr codes"],
+            ["complicated", "harder", "difficult", "drawbacks", "problems"]
+          ]
+        },
+        {
+          id: "C5",
+          section: "C",
+          sectionLabel: "Section C · True or False with Evidence (5 of 5)",
+          instruction: "Decide if the statement is TRUE or FALSE, and copy or paraphrase the exact evidence from the text to justify your answer.",
+          prompt: "15. Young people who switch to basic phones expect modern smartphones to disappear completely.",
+          type: "tf",
+          tfPoints: 0.4,
+          evPoints: 0.5,
+          correctTF: "False",
+          hint: "Read the very first sentence of Paragraph V to see what young adopters actually expect for the future.",
+          wrongTFExplanation: "The statement is FALSE because Paragraph V says it is unlikely basic phones will ever replace smartphones entirely, nor do young adopters expect society to turn back the clock.",
+          evidence: '"It is unlikely that basic phones will ever replace smartphones entirely, nor do most young adopters expect society to turn back the clock." (Paragraph V)',
+          exactPhrases: [
+            "unlikely that basic phones will ever replace smartphones entirely",
+            "nor do most young adopters expect society to turn back the clock",
+            "replace smartphones entirely",
+            "turn back the clock"
+          ],
+          conceptGroups: [
+            ["unlikely", "never", "nor", "do not expect", "don't expect", "not expect"],
+            ["replace smartphones", "entirely", "completely", "turn back the clock", "disappear"]
+          ]
+        }
+      ];
+
+      // =========================================================
+      // 2. APPLICATION STATE
+      // =========================================================
+      const state = {
+        studentName: "",
+        phase: "start", // "start" | "reading" | "questions" | "final"
+        currentIndex: 0,
+        attempt: 1,
+        questionResolved: false,
+        selectedMC: null,
+        selectedTF: null,
+        tfLockedCorrect: false,
+        evLockedCorrect: false,
+        scores: {
+          A: 0,
+          B: 0,
+          C: 0
+        },
+        readingExpandedOnMobile: false
+      };
+
+      // =========================================================
+      // 3. DOM REFERENCES
+      // =========================================================
+      const startScreen = document.getElementById("start-screen");
+      const activityScreen = document.getElementById("activity-screen");
+      const finalScreen = document.getElementById("final-screen");
+
+      const nameInput = document.getElementById("student-name-input");
+      const nameError = document.getElementById("name-error");
+      const startBtn = document.getElementById("start-btn");
+
+      const displayStudentName = document.getElementById("display-student-name");
+      const liveScorePill = document.getElementById("live-score-pill");
+      const progressLabel = document.getElementById("progress-label");
+      const progressPercent = document.getElementById("progress-percent");
+      const progressFill = document.getElementById("progress-fill");
+      const progressBarRole = document.getElementById("progress-bar-role");
+
+      const mobileToggleBar = document.getElementById("mobile-toggle-bar");
+      const toggleReadingBtn = document.getElementById("toggle-reading-btn");
+      const workspaceGrid = document.getElementById("workspace-grid");
+      const readingCard = document.getElementById("reading-card");
+      const goToQuestionsBtn = document.getElementById("go-to-questions-btn");
+      const hideAndReturnBtn = document.getElementById("hide-and-return-btn");
+
+      const questionCard = document.getElementById("question-card");
+      const qSectionTag = document.getElementById("q-section-tag");
+      const qInstruction = document.getElementById("q-instruction");
+      const qPrompt = document.getElementById("q-prompt");
+      const qInputArea = document.getElementById("q-input-area");
+      const qFeedback = document.getElementById("q-feedback");
+      const submitAnswerBtn = document.getElementById("submit-answer-btn");
+      const nextQuestionBtn = document.getElementById("next-question-btn");
+
+      // =========================================================
+      // 4. HELPER UTILITIES
+      // =========================================================
+      function normalizeText(str) {
+        return String(str || "")
+          .toLowerCase()
+          .replace(/[\u2018\u2019]/g, "'")
+          .replace(/[\u201C\u201D]/g, '"')
+          .replace(/[—–-]/g, " ")
+          .replace(/[^a-z0-9'\s]/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function formatScore(num) {
+        const clamped = Math.max(0, Math.min(10, num));
+        const rounded = Math.round(clamped * 10) / 10;
+        return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1).replace(".", ",");
+      }
+
+      function getTotalScore() {
+        return Math.max(0, state.scores.A + state.scores.B + state.scores.C);
+      }
+
+      function updateStatusHeader() {
+        const total = getTotalScore();
+        liveScorePill.textContent = "Puntuación: " + formatScore(total) + " / 10";
+
+        if (state.phase === "reading") {
+          progressLabel.textContent = "Paso 1: Lee el texto completo";
+          progressPercent.textContent = "0%";
+          progressFill.style.width = "0%";
+          progressBarRole.setAttribute("aria-valuenow", "0");
+        } else if (state.phase === "questions") {
+          const completedCount = state.currentIndex + (state.questionResolved ? 1 : 0);
+          const pct = Math.round((completedCount / questions.length) * 100);
+          progressLabel.textContent = "Pregunta " + (state.currentIndex + 1) + " de " + questions.length;
+          progressPercent.textContent = pct + "%";
+          progressFill.style.width = pct + "%";
+          progressBarRole.setAttribute("aria-valuenow", String(pct));
+        }
+      }
+
+      function isDesktopView() {
+        return window.innerWidth >= 980;
+      }
+
+      function syncReadingVisibility() {
+        if (state.phase !== "questions") return;
+
+        if (isDesktopView()) {
+          // On wide desktop, text and questions sit side-by-side in normal flow
+          readingCard.classList.remove("hidden");
+          mobileToggleBar.classList.add("hidden");
+          hideAndReturnBtn.classList.add("hidden");
+        } else {
+          // On mobile/tablet, collapsible panel in normal flow
+          mobileToggleBar.classList.remove("hidden");
+          if (state.readingExpandedOnMobile) {
+            readingCard.classList.remove("hidden");
+            toggleReadingBtn.textContent = "🔼 Ocultar texto de lectura";
+            hideAndReturnBtn.classList.remove("hidden");
+          } else {
+            readingCard.classList.add("hidden");
+            toggleReadingBtn.textContent = "📖 Mostrar texto de lectura";
+            hideAndReturnBtn.classList.add("hidden");
+          }
+        }
+      }
+
+      function scrollToElement(el) {
+        if (!el) return;
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      // =========================================================
+      // 5. NAVIGATION & FLOW HANDLERS
+      // =========================================================
+      function handleStartActivity() {
+        const rawName = nameInput.value.trim();
+        if (rawName.length < 2) {
+          nameError.classList.remove("hidden");
+          nameInput.focus();
+          return;
+        }
+        nameError.classList.add("hidden");
+        state.studentName = rawName;
+        state.phase = "reading";
+
+        displayStudentName.textContent = "👤 " + state.studentName;
+        startScreen.classList.add("hidden");
+        activityScreen.classList.remove("hidden");
+        updateStatusHeader();
+        scrollToElement(document.getElementById("status-panel"));
+      }
+
+      startBtn.addEventListener("click", handleStartActivity);
+      nameInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          handleStartActivity();
+        }
+      });
+
+      goToQuestionsBtn.addEventListener("click", function () {
+        state.phase = "questions";
+        state.readingExpandedOnMobile = false;
+        workspaceGrid.classList.add("in-questions");
+        goToQuestionsBtn.classList.add("hidden");
+        questionCard.classList.remove("hidden");
+
+        syncReadingVisibility();
+        renderQuestion();
+        updateStatusHeader();
+        scrollToElement(questionCard);
+      });
+
+      toggleReadingBtn.addEventListener("click", function () {
+        state.readingExpandedOnMobile = !state.readingExpandedOnMobile;
+        syncReadingVisibility();
+        if (state.readingExpandedOnMobile) {
+          scrollToElement(readingCard);
+        } else {
+          scrollToElement(questionCard);
+        }
+      });
+
+      hideAndReturnBtn.addEventListener("click", function () {
+        state.readingExpandedOnMobile = false;
+        syncReadingVisibility();
+        scrollToElement(questionCard);
+      });
+
+      window.addEventListener("resize", function () {
+        syncReadingVisibility();
+      });
+
+      // =========================================================
+      // 6. QUESTION RENDERING
+      // =========================================================
+      function renderQuestion() {
+        const q = questions[state.currentIndex];
+        state.attempt = 1;
+        state.questionResolved = false;
+        state.selectedMC = null;
+        state.selectedTF = null;
+        state.tfLockedCorrect = false;
+        state.evLockedCorrect = false;
+
+        qSectionTag.textContent = q.sectionLabel;
+        qInstruction.textContent = q.instruction;
+        qPrompt.textContent = q.prompt;
+
+        qFeedback.className = "feedback-box hidden";
+        qFeedback.innerHTML = "";
+        submitAnswerBtn.classList.remove("hidden");
+        submitAnswerBtn.disabled = false;
+        submitAnswerBtn.textContent = "Comprobar respuesta";
+        nextQuestionBtn.classList.add("hidden");
+        nextQuestionBtn.textContent =
+          state.currentIndex === questions.length - 1
+            ? "Ver resultado final →"
+            : "Siguiente pregunta →";
+
+        qInputArea.innerHTML = "";
+
+        if (q.type === "mc") {
+          const list = document.createElement("div");
+          list.className = "options-list";
+
+          q.options.forEach(function (opt) {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "option-btn";
+            btn.dataset.key = opt.key;
+            btn.innerHTML =
+              '<span class="option-letter">' + opt.key + "</span>" +
+              "<span>" + opt.text + "</span>";
+
+            btn.addEventListener("click", function () {
+              if (state.questionResolved) return;
+              state.selectedMC = opt.key;
+              Array.from(list.querySelectorAll(".option-btn")).forEach(function (b) {
+                b.classList.remove("selected");
+              });
+              btn.classList.add("selected");
+            });
+
+            list.appendChild(btn);
+          });
+
+          qInputArea.appendChild(list);
+        } else if (q.type === "synonym") {
+          const label = document.createElement("label");
+          label.className = "field-label";
+          label.setAttribute("for", "synonym-input");
+          label.textContent = "Write the word or expression from the text:";
+
+          const input = document.createElement("input");
+          input.type = "text";
+          input.id = "synonym-input";
+          input.className = "input-field";
+          input.placeholder = "Type the word or expression here...";
+          input.autocomplete = "off";
+          input.spellcheck = false;
+
+          input.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" && !state.questionResolved) {
+              e.preventDefault();
+              evaluateCurrentQuestion();
+            }
+          });
+
+          qInputArea.appendChild(label);
+          qInputArea.appendChild(input);
+        } else if (q.type === "tf") {
+          const tfLabel = document.createElement("span");
+          tfLabel.className = "field-label";
+          tfLabel.textContent = "1. Select True or False:";
+          qInputArea.appendChild(tfLabel);
+
+          const tfGroup = document.createElement("div");
+          tfGroup.className = "tf-group";
+
+          ["True", "False"].forEach(function (val) {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "tf-btn";
+            btn.dataset.value = val;
+            btn.textContent = val.toUpperCase();
+
+            btn.addEventListener("click", function () {
+              if (state.questionResolved || state.tfLockedCorrect) return;
+              state.selectedTF = val;
+              Array.from(tfGroup.querySelectorAll(".tf-btn")).forEach(function (b) {
+                b.classList.remove("selected");
+              });
+              btn.classList.add("selected");
+            });
+
+            tfGroup.appendChild(btn);
+          });
+
+          qInputArea.appendChild(tfGroup);
+
+          const evLabel = document.createElement("label");
+          evLabel.className = "field-label";
+          evLabel.setAttribute("for", "evidence-textarea");
+          evLabel.textContent = "2. Textual evidence (quote or faithful paraphrase from the text):";
+          qInputArea.appendChild(evLabel);
+
+          const textarea = document.createElement("textarea");
+          textarea.id = "evidence-textarea";
+          textarea.className = "textarea-field";
+          textarea.placeholder = "Copy the sentence/phrase from the text or paraphrase it clearly...";
+          qInputArea.appendChild(textarea);
+        }
+      }
+
+      // =========================================================
+      // 7. EVALUATION LOGIC (2 ATTEMPTS + HINTS + PARTIAL CREDIT)
+      // =========================================================
+      function evaluateEvidence(q, rawUserText) {
+        const normUser = normalizeText(rawUserText);
+        if (!normUser || normUser.length < 10 || normUser.split(" ").length < 3) {
+          return { status: "ambiguous" }; // Too short to evaluate safely
+        }
+
+        // 1. Check exact / near-exact substring matches
+        for (let i = 0; i < q.exactPhrases.length; i++) {
+          const phrase = normalizeText(q.exactPhrases[i]);
+          if (normUser.includes(phrase) || (normUser.length >= 18 && phrase.includes(normUser))) {
+            return { status: "valid" };
+          }
+        }
+
+        // 2. Check concept groups (allows faithful paraphrases & synonyms)
+        let matchedGroups = 0;
+        for (let g = 0; g < q.conceptGroups.length; g++) {
+          const group = q.conceptGroups[g];
+          const hit = group.some(function (kw) {
+            return normUser.includes(normalizeText(kw));
+          });
+          if (hit) matchedGroups++;
+        }
+
+        if (matchedGroups >= 2) {
+          return { status: "valid" };
+        }
+
+        if (matchedGroups === 1 && normUser.split(" ").length < 6) {
+          return { status: "ambiguous" };
+        }
+
+        return { status: "invalid" };
+      }
+
+      function showFeedback(type, title, bodyHtml, evidenceText) {
+        qFeedback.className = "feedback-box " + type;
+        let html = '<div class="feedback-title">' + title + "</div><div>" + bodyHtml + "</div>";
+        if (evidenceText) {
+          html += '<div class="evidence-quote"><strong>Evidencia del texto:</strong> ' + evidenceText + "</div>";
+        }
+        qFeedback.innerHTML = html;
+        qFeedback.classList.remove("hidden");
+      }
+
+      function finishCurrentQuestion() {
+        state.questionResolved = true;
+        submitAnswerBtn.classList.add("hidden");
+        nextQuestionBtn.classList.remove("hidden");
+        updateStatusHeader();
+      }
+
+      function evaluateCurrentQuestion() {
+        if (state.questionResolved) return;
+        const q = questions[state.currentIndex];
+
+        // --- TYPE A: MULTIPLE CHOICE ---
+        if (q.type === "mc") {
+          if (!state.selectedMC) {
+            showFeedback("hint", "Selecciona una opción", "Por favor, elige A, B, C o D antes de comprobar tu respuesta.");
+            return;
+          }
+
+          const isCorrect = state.selectedMC === q.correctKey;
+          const optionButtons = Array.from(qInputArea.querySelectorAll(".option-btn"));
+
+          if (isCorrect) {
+            const earned = state.attempt === 1 ? q.maxPoints : q.maxPoints * 0.5;
+            state.scores.A += earned;
+
+            optionButtons.forEach(function (btn) {
+              btn.disabled = true;
+              if (btn.dataset.key === q.correctKey) {
+                btn.classList.add("correct-choice");
+              }
+            });
+
+            const msg =
+              state.attempt === 1
+                ? "¡Excelente! Has acertado al primer intento (+" + formatScore(earned) + " pts)."
+                : "¡Correcto en el segundo intento! (+" + formatScore(earned) + " pts).";
+            showFeedback("success", "Respuesta correcta", msg, q.evidence);
+            finishCurrentQuestion();
+          } else {
+            if (state.attempt === 1) {
+              state.attempt = 2;
+              submitAnswerBtn.textContent = "Comprobar segundo intento";
+              showFeedback(
+                "hint",
+                "Incorrecto en el primer intento · Tienes una segunda oportunidad",
+                "La opción <strong>" + state.selectedMC + "</strong> no es correcta. <br><strong>Pista:</strong> " + q.hint
+              );
+            } else {
+              optionButtons.forEach(function (btn) {
+                btn.disabled = true;
+                if (btn.dataset.key === q.correctKey) {
+                  btn.classList.add("correct-choice");
+                } else if (btn.dataset.key === state.selectedMC) {
+                  btn.classList.add("wrong-choice");
+                }
+              });
+
+              showFeedback(
+                "error",
+                "Respuesta incorrecta (0 pts)",
+                "Has elegido la opción <strong>" + state.selectedMC + "</strong>, pero la respuesta correcta es la <strong>" + q.correctKey + "</strong>. " + q.wrongExplanation,
+                q.evidence
+              );
+              finishCurrentQuestion();
+            }
+          }
+          return;
+        }
+
+        // --- TYPE B: SYNONYMS ---
+        if (q.type === "synonym") {
+          const inputEl = document.getElementById("synonym-input");
+          const normVal = normalizeText(inputEl.value);
+
+          if (!normVal) {
+            showFeedback("hint", "Campo vacío", "Por favor, escribe la palabra o expresión del texto antes de comprobar.");
+            inputEl.focus();
+            return;
+          }
+
+          const isCorrect = q.accepted.some(function (acc) {
+            return normalizeText(acc) === normVal;
+          });
+
+          if (isCorrect) {
+            const earned = state.attempt === 1 ? q.maxPoints : q.maxPoints * 0.5;
+            state.scores.B += earned;
+            inputEl.disabled = true;
+
+            const msg =
+              state.attempt === 1
+                ? "¡Muy bien! Has encontrado la palabra exacta al primer intento (+" + formatScore(earned) + " pts)."
+                : "¡Correcto en el segundo intento! (+" + formatScore(earned) + " pts).";
+            showFeedback("success", "Sinónimo correcto: «" + q.canonical + "»", msg, q.evidence);
+            finishCurrentQuestion();
+          } else {
+            if (state.attempt === 1) {
+              state.attempt = 2;
+              submitAnswerBtn.textContent = "Comprobar segundo intento";
+              showFeedback(
+                "hint",
+                "No es la palabra buscada · Segundo intento disponible",
+                "«" + inputEl.value.trim() + "» no corresponde al sinónimo exacto en el texto. <br><strong>Pista:</strong> " + q.hint
+              );
+              inputEl.focus();
+            } else {
+              inputEl.disabled = true;
+              showFeedback(
+                "error",
+                "Respuesta incorrecta (0 pts)",
+                q.wrongExplanation + " La palabra correcta del texto es <strong>«" + q.canonical + "»</strong>.",
+                q.evidence
+              );
+              finishCurrentQuestion();
+            }
+          }
+          return;
+        }
+
+        // --- TYPE C: TRUE / FALSE WITH EVIDENCE ---
+        if (q.type === "tf") {
+          const textareaEl = document.getElementById("evidence-textarea");
+          const rawEv = textareaEl.value.trim();
+
+          if (!state.selectedTF) {
+            showFeedback("hint", "Falta elegir True o False", "Por favor, selecciona <strong>TRUE</strong> o <strong>FALSE</strong> antes de comprobar.");
+            return;
+          }
+          if (!rawEv) {
+            showFeedback("hint", "Falta la evidencia textual", "Por favor, escribe la cita o paráfrasis del texto que justifica tu respuesta.");
+            textareaEl.focus();
+            return;
+          }
+
+          const tfRight = state.selectedTF === q.correctTF;
+          const evCheck = state.evLockedCorrect ? { status: "valid" } : evaluateEvidence(q, rawEv);
+
+          // If evidence is too brief/ambiguous on Attempt 1, ask student to clarify before consuming Attempt 2
+          if (state.attempt === 1 && !state.evLockedCorrect && evCheck.status === "ambiguous") {
+            showFeedback(
+              "hint",
+              "Revisa y completa tu justificación antes de gastar tu segundo intento",
+              "Tu justificación es demasiado breve o incompleta para verificarla con seguridad. Copia la frase completa del texto o amplía tu paráfrasis.<br><strong>Pista:</strong> " + q.hint
+            );
+            textareaEl.focus();
+            return;
+          }
+
+          const evRight = evCheck.status === "valid";
+          const tfButtons = Array.from(qInputArea.querySelectorAll(".tf-btn"));
+
+          // Award points immediately for any newly validated half
+          let newlyEarned = 0;
+          if (tfRight && !state.tfLockedCorrect) {
+            newlyEarned += state.attempt === 1 ? q.tfPoints : q.tfPoints * 0.5;
+            state.tfLockedCorrect = true;
+            tfButtons.forEach(function (b) {
+              b.disabled = true;
+              if (b.dataset.value === q.correctTF) {
+                b.classList.remove("selected");
+                b.classList.add("locked-correct");
+              }
+            });
+          }
+
+          if (evRight && !state.evLockedCorrect) {
+            newlyEarned += state.attempt === 1 ? q.evPoints : q.evPoints * 0.5;
+            state.evLockedCorrect = true;
+            textareaEl.disabled = true;
+          }
+
+          state.scores.C += newlyEarned;
+
+          // Case 1: Both parts are now correct!
+          if (state.tfLockedCorrect && state.evLockedCorrect) {
+            showFeedback(
+              "success",
+              "¡Respuesta completa y correcta!",
+              "Has acertado tanto la opción <strong>" + q.correctTF.toUpperCase() + "</strong> como la justificación textual.",
+              q.evidence
+            );
+            finishCurrentQuestion();
+            return;
+          }
+
+          // Case 2: At least one part is still wrong on Attempt 1 -> Give 2nd attempt + hint
+          if (state.attempt === 1) {
+            state.attempt = 2;
+            submitAnswerBtn.textContent = "Comprobar segundo intento";
+
+            let partialMsg = "";
+            if (state.tfLockedCorrect && !state.evLockedCorrect) {
+              partialMsg =
+                "✅ La elección <strong>" + q.correctTF.toUpperCase() + "</strong> es correcta (has asegurado sus puntos), pero la justificación no coincide con la idea clave del texto.";
+            } else if (!state.tfLockedCorrect && state.evLockedCorrect) {
+              partialMsg =
+                "✅ La evidencia del texto que has citado es válida (has asegurado sus puntos), pero la opción <strong>" + state.selectedTF.toUpperCase() + "</strong> no es correcta. Relee el fragmento con calma.";
+            } else {
+              partialMsg =
+                "Ni la opción <strong>" + state.selectedTF.toUpperCase() + "</strong> ni la justificación son correctas todavía.";
+            }
+
+            showFeedback(
+              "hint",
+              "Revisión del primer intento · Tienes una segunda oportunidad",
+              partialMsg + "<br><strong>Pista:</strong> " + q.hint
+            );
+            return;
+          }
+
+          // Case 3: Attempt 2 finished and one or both parts remain incorrect
+          tfButtons.forEach(function (b) {
+            b.disabled = true;
+          });
+          textareaEl.disabled = true;
+
+          let finalDetail = "";
+          if (state.tfLockedCorrect && !state.evLockedCorrect) {
+            finalDetail =
+              "Acertaste que la afirmación es <strong>" + q.correctTF.toUpperCase() + "</strong>, pero la justificación aportada no respalda suficientemente la respuesta.";
+          } else if (!state.tfLockedCorrect && state.evLockedCorrect) {
+            finalDetail =
+              "Tu evidencia textual era adecuada, pero la opción correcta era <strong>" + q.correctTF.toUpperCase() + "</strong>. " + q.wrongTFExplanation;
+          } else {
+            finalDetail =
+              "La opción correcta era <strong>" + q.correctTF.toUpperCase() + "</strong>. " + q.wrongTFExplanation;
+          }
+
+          showFeedback(
+            state.tfLockedCorrect || state.evLockedCorrect ? "hint" : "error",
+            state.tfLockedCorrect || state.evLockedCorrect
+              ? "Resultado parcial tras el segundo intento"
+              : "Respuesta incorrecta tras el segundo intento (0 pts)",
+            finalDetail,
+            q.evidence
+          );
+          finishCurrentQuestion();
+        }
+      }
+
+      submitAnswerBtn.addEventListener("click", evaluateCurrentQuestion);
+
+      nextQuestionBtn.addEventListener("click", function () {
+        if (!state.questionResolved) return;
+
+        if (state.currentIndex < questions.length - 1) {
+          state.currentIndex += 1;
+          state.readingExpandedOnMobile = false;
+          syncReadingVisibility();
+          renderQuestion();
+          updateStatusHeader();
+          scrollToElement(questionCard);
+        } else {
+          showFinalScreen();
+        }
+      });
+
+      // =========================================================
+      // 8. FINAL SCREEN
+      // =========================================================
+      function showFinalScreen() {
+        state.phase = "final";
+        activityScreen.classList.add("hidden");
+        finalScreen.classList.remove("hidden");
+
+        const total = getTotalScore();
+        const formattedTotal = formatScore(total);
+
+        document.getElementById("final-student-name").textContent = state.studentName;
+        document.getElementById("final-score-value").textContent = formattedTotal;
+
+        let closingMsg = "";
+        if (total >= 9) {
+          closingMsg = "¡Excelente trabajo! Has demostrado una comprensión profunda del texto y una gran precisión en tus respuestas.";
+        } else if (total >= 7) {
+          closingMsg = "¡Muy buen trabajo! Has comprendido con claridad las ideas principales y los detalles del artículo.";
+        } else if (total >= 5) {
+          closingMsg = "¡Actividad superada! Has captado la idea general del texto, aunque conviene revisar con más calma las evidencias exactas.";
+        } else {
+          closingMsg = "Has completado toda la lectura y los ejercicios. Repasa las pistas y evidencias de cada párrafo para afianzar la comprensión.";
+        }
+        document.getElementById("final-closing-message").textContent = closingMsg;
+
+        document.getElementById("breakdown-a").textContent = formatScore(state.scores.A) + " / 3,0";
+        document.getElementById("breakdown-b").textContent = formatScore(state.scores.B) + " / 2,5";
+        document.getElementById("breakdown-c").textContent = formatScore(state.scores.C) + " / 4,5";
+        document.getElementById("breakdown-total").innerHTML = "<strong>" + formattedTotal + " / 10</strong>";
+
+        scrollToElement(finalScreen);
+      }
+    })();
+  </script>
+</body>
+</html>
